@@ -1,0 +1,2132 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.3">
+    
+    
+      
+        <title>Ontology Design - OBO Semantic Engineering Training</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.62128196.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ontology-design" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OBO Semantic Engineering Training" class="md-header__button md-logo" aria-label="OBO Semantic Engineering Training" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OBO Semantic Engineering Training
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ontology Design
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OBOAcademy/obook/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OBO Semantic Engineering Training" class="md-nav__button md-logo" aria-label="OBO Semantic Engineering Training" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    OBO Semantic Engineering Training
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OBOAcademy/obook/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About the course
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/" class="md-nav__link">
+        Getting started with learning
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        Overview of lessons and tutorials
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        Contribute to the course
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Courses
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Courses" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Courses
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/icbo2021/" class="md-nav__link">
+        ICBO 2021 Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/monarch-obo-training/" class="md-nav__link">
+        Monarch Ontology Training
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Lessons
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lessons" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing_to_obo_ontologies/" class="md-nav__link">
+        Contributing to OBO ontologies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ontology_pipelines/" class="md-nav__link">
+        Ontology Pipelines with ROBOT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analysing_linked_data/" class="md-nav__link">
+        Analysing Linked Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../application_ontology_development/" class="md-nav__link">
+        Application Ontology Development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automating_ontology_workflows/" class="md-nav__link">
+        Automating Ontology Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developing_an_obo_ontology/" class="md-nav__link">
+        Developing an OBO Ontology
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developing_application_ontologies/" class="md-nav__link">
+        Developing an Application Ontology
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Ontology Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Ontology Design
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#warning" class="md-nav__link">
+    Warning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    Preparation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-delivered-as-part-of-this-course" class="md-nav__link">
+    What is delivered as part of this course
+  </a>
+  
+    <nav class="md-nav" aria-label="What is delivered as part of this course">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    Learning objectives
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorials" class="md-nav__link">
+    Tutorials
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-materials-and-resources" class="md-nav__link">
+    Additional Materials and Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semantic-engineer-toolbox" class="md-nav__link">
+    Semantic Engineer Toolbox
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributors" class="md-nav__link">
+    Contributors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgement" class="md-nav__link">
+    Acknowledgement
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#owl-class-restrictions" class="md-nav__link">
+    OWL class restrictions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#superclass-restrictions" class="md-nav__link">
+    Superclass restrictions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equivalence-axioms-and-automatic-classification" class="md-nav__link">
+    Equivalence Axioms and Automatic classification
+  </a>
+  
+    <nav class="md-nav" aria-label="Equivalence Axioms and Automatic classification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-an-equivalence-axiom-to-an-existing-mondo-term" class="md-nav__link">
+    Add an equivalence axiom to an existing Mondo term
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-classes-and-automatically-classifying-them" class="md-nav__link">
+    Adding classes and automatically classifying them
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debugging-automatic-classifications" class="md-nav__link">
+    Debugging automatic classifications
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disjointness" class="md-nav__link">
+    Disjointness
+  </a>
+  
+    <nav class="md-nav" aria-label="Disjointness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#review-and-fix-one-unsatisfiable-class" class="md-nav__link">
+    Review and fix one unsatisfiable class
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates_for_obo/" class="md-nav__link">
+        Templates for OBO ontologies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ontology_development/" class="md-nav__link">
+        Ontology Development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ontology_fundamentals/" class="md-nav__link">
+        Ontology Fundamentals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelling_with_object_properties/" class="md-nav__link">
+        Modelling with Object Properties
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ontology_term_use/" class="md-nav__link">
+        Ontology Term Use
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rdf/" class="md-nav__link">
+        RDF Fundamentals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semantic_database_fundamentals/" class="md-nav__link">
+        Semantic Database Fundamentals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using_disease_and_phenotype_ontologies/" class="md-nav__link">
+        Disease and Phenotype Ontologies
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1">
+          Ontology Pipelines - ODK, ROBOT, etc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Ontology Pipelines - ODK, ROBOT, etc" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Ontology Pipelines - ODK, ROBOT, etc
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/robot_tutorial_1/" class="md-nav__link">
+        ROBOT Mini-Tutorial 1 - Convert, Extract and Template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/robot_tutorial_2/" class="md-nav__link">
+        ROBOT Mini-Tutorial 2 - Annotate, Merge, Reason and Diff
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/robot_tutorial_qc/" class="md-nav__link">
+        ROBOT Mini-Tutorial QC - Quality Control with report and query
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/setting-up-project-odk/" class="md-nav__link">
+        ODK - Getting started with your own repo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/managing-dynamic-imports-odk/" class="md-nav__link">
+        ODK - Managing imports
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/managing-ontology-releases-odk/" class="md-nav__link">
+        ODK - Managing ontology releases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/migrating-ontology-to-odk/" class="md-nav__link">
+        ODK - Migrating to ODK
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          Templates
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Templates" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Templates
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/dosdp_template/" class="md-nav__link">
+        DOSDP Templates
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_3" type="checkbox" id="__nav_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_3">
+          Git, GitHub and Collaborative Workflows
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Git, GitHub and Collaborative Workflows" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          Git, GitHub and Collaborative Workflows
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/github_fundamentals/" class="md-nav__link">
+        GitHub Fundamentals for OBO Engineers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/github_issues/" class="md-nav__link">
+        GitHub Issue for OBO Engineers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/managing-ontology-project/" class="md-nav__link">
+        Managing OBO ontology projects
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_4" type="checkbox" id="__nav_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_4">
+          Dealing with Semantic Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dealing with Semantic Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          Dealing with Semantic Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/linking-data/" class="md-nav__link">
+        From Tables to Linked Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/sparql/" class="md-nav__link">
+        Basic SPARQL for OBO Engineers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_5" type="checkbox" id="__nav_7_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_5">
+          General Ontology Modelling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General Ontology Modelling" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          General Ontology Modelling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/fhkb/" class="md-nav__link">
+        Family History Knowledge Base (FHKB) tutorial
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          How-to guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How-to guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          How-to guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Protege
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Protege" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Protege
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/installing_elk_in_protege/" class="md-nav__link">
+        Installing ELK in Protege
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/switching_ontologies/" class="md-nav__link">
+        Switching Ontologies in Protege
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/protege_browse_search/" class="md-nav__link">
+        Browsing and Searching
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" type="checkbox" id="__nav_8_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_2">
+          ODK
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ODK" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_2">
+          <span class="md-nav__icon md-icon"></span>
+          ODK
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/setup_ontology_development_odk/" class="md-nav__link">
+        Get set up for ODK-based ontology development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/odk_setup/" class="md-nav__link">
+        Setting up the ODK
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Git and Github
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Git and Github" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Git and Github
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/clone_mondo_repo/" class="md-nav__link">
+        Clone a repository
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/github_create_fork/" class="md-nav__link">
+        Creating an GitHub Fork
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/github_create_pull_request/" class="md-nav__link">
+        Creating an GitHub Pull Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/change_files_pull_request/" class="md-nav__link">
+        Change a pull request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/fixing-conflicts/" class="md-nav__link">
+        Fixing conflicts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_4" type="checkbox" id="__nav_8_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_4">
+          Quality control
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Quality control" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_4">
+          <span class="md-nav__icon md-icon"></span>
+          Quality control
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/deploy_custom_obo_dashboard/" class="md-nav__link">
+        Deploy a custom OBO-Dashboard
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/other_resources/" class="md-nav__link">
+        Other useful resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/github_desktop/" class="md-nav__link">
+        GitHub Desktop
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/semantic_engineering_toolbox/" class="md-nav__link">
+        Semantic Engineering Toolbox
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/tables-and-triples/" class="md-nav__link">
+        Tables and Triples
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/reasoning/" class="md-nav__link">
+        Reasoning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/ontology-curator/" class="md-nav__link">
+        A day in the life of an ontology curator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/git_faq/" class="md-nav__link">
+        Git FAQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/owl_formats_variants/" class="md-nav__link">
+        OWL, OBO, JSON? Base, simple, full, basic? What should you use, and why?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/mungall_blog_radar/" class="md-nav__link">
+        Monkeying around with OWL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/odk/" class="md-nav__link">
+        Ontology Development Kit (ODK)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          OBOOK Editors
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OBOOK Editors" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          OBOOK Editors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../images/" class="md-nav__link">
+        How to add images
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/template/" class="md-nav__link">
+        New lesson template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teaching/case_studies/" class="md-nav__link">
+        Case studies for teaching
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#warning" class="md-nav__link">
+    Warning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    Preparation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-delivered-as-part-of-this-course" class="md-nav__link">
+    What is delivered as part of this course
+  </a>
+  
+    <nav class="md-nav" aria-label="What is delivered as part of this course">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    Learning objectives
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorials" class="md-nav__link">
+    Tutorials
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-materials-and-resources" class="md-nav__link">
+    Additional Materials and Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semantic-engineer-toolbox" class="md-nav__link">
+    Semantic Engineer Toolbox
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributors" class="md-nav__link">
+    Contributors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgement" class="md-nav__link">
+    Acknowledgement
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#owl-class-restrictions" class="md-nav__link">
+    OWL class restrictions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#superclass-restrictions" class="md-nav__link">
+    Superclass restrictions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equivalence-axioms-and-automatic-classification" class="md-nav__link">
+    Equivalence Axioms and Automatic classification
+  </a>
+  
+    <nav class="md-nav" aria-label="Equivalence Axioms and Automatic classification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-an-equivalence-axiom-to-an-existing-mondo-term" class="md-nav__link">
+    Add an equivalence axiom to an existing Mondo term
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-classes-and-automatically-classifying-them" class="md-nav__link">
+    Adding classes and automatically classifying them
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debugging-automatic-classifications" class="md-nav__link">
+    Debugging automatic classifications
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disjointness" class="md-nav__link">
+    Disjointness
+  </a>
+  
+    <nav class="md-nav" aria-label="Disjointness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#review-and-fix-one-unsatisfiable-class" class="md-nav__link">
+    Review and fix one unsatisfiable class
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/OBOAcademy/obook/edit/master/docs/lesson/ontology_design.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="ontology-design">Ontology Design<a class="headerlink" href="#ontology-design" title="Permanent link">&para;</a></h1>
+<h3 id="warning">Warning<a class="headerlink" href="#warning" title="Permanent link">&para;</a></h3>
+<p>These materials are under construction and incomplete.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Participants will need to have access to the following resources and tools prior to the training:
+- <strong>GitHub account</strong> - register for a free GitHub account <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F&amp;source=header-home">here</a>
+- <strong>Protege</strong> - Install Protege 5.5, download it <a href="https://protege.stanford.edu/">here</a>
+- <strong><a href="https://github.com/jamesaoverton/obook/blob/master/docs/howto/install_elk_0.5_protege.md">Install ELK 0.5</a></strong> 
+- <strong>Install GitHub Desktop</strong> Please make sure you have some kind of git client installed on your machine. If you are new to Git, please install <a href="https://desktop.github.com/">GitHub Desktop</a></p>
+<h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Review tutorial on <a href="../ontology_term_use/">Ontology Term Use</a></li>
+<li>Review tutorial on <a href="https://github.com/jamesaoverton/obook/blob/master/docs/lesson/contributing_to_obo_ontologies.md">Contributing to OBO Ontologies</a></li>
+<li>Clone Mondo repo: Follow these instructions to <a href="../../howto/clone_mondo_repo/">clone the Mondo repo</a></li>
+</ul>
+<h2 id="what-is-delivered-as-part-of-this-course">What is delivered as part of this course<a class="headerlink" href="#what-is-delivered-as-part-of-this-course" title="Permanent link">&para;</a></h2>
+<p><strong>Description</strong>: This course will cover reasoning with OWL.</p>
+<h3 id="learning-objectives">Learning objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h3>
+<p>At the end of this lesson, you should know how to do:</p>
+<ol>
+<li>Add existential restrictions</li>
+<li>Add defined classes</li>
+<li>Add disjoint axioms</li>
+<li>Debug unsatisfiable classes</li>
+</ol>
+<h2 id="tutorials">Tutorials<a class="headerlink" href="#tutorials" title="Permanent link">&para;</a></h2>
+<p><strong>OpenHPI Course Content</strong>
+1. <a href="https://open.hpi.de/courses/semanticweb2015/items/2oYC9PkLYvxv4InZuBMBVl">Ontologies and Logic</a> Videos 3.0-3.10 | <strong>Duration:</strong> ~3.5 hrs<br />
+1. <a href="https://open.hpi.de/courses/semanticweb2015/items/2oCcvFX4bzhBbNWE6EVpoV">OWL, Rules, and Reasoning</a> Videos 4.0-4.8 | <strong>Duration:</strong> ~2.7 hrs  </p>
+<h2 id="additional-materials-and-resources">Additional Materials and Resources<a class="headerlink" href="#additional-materials-and-resources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://tislab.org/ontologyResources.html">Ontology tutorials and Resources</a></li>
+<li><a href="https://douroucouli.wordpress.com/">Monkeying around with OWL: Musings on building and using ontologies, posts by Chris Mungall</a></li>
+<li><a href="https://github.com/obophenotype/cell-ontology/blob/master/documentation/relations_guide.md">Documentation on Cell Ontology relations</a></li>
+<li><a href="https://philpapers.org/archive/SEPGFW.pdf">Guidelines for writing definitions in Ontologies (paper)</a></li>
+</ul>
+<h2 id="semantic-engineer-toolbox">Semantic Engineer Toolbox<a class="headerlink" href="#semantic-engineer-toolbox" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://protege.stanford.edu/">Protege</a></li>
+<li><a href="https://oss.sonatype.org/service/local/artifact/maven/content?r=snapshots&amp;g=org.semanticweb.elk&amp;a=elk-distribution-protege&amp;e=zip&amp;v=LATEST">ELK Protege Plugin</a></li>
+<li><a href="https://desktop.github.com/">GitHub Desktop</a></li>
+</ul>
+<h2 id="contributors">Contributors<a class="headerlink" href="#contributors" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://orcid.org/0000-0001-5208-3432">Nicole Vasilevsky</a></li>
+<li><a href="https://orcid.org/0000-0002-7356-1779">Nico Matentzoglu</a></li>
+</ul>
+<h2 id="acknowledgement">Acknowledgement<a class="headerlink" href="#acknowledgement" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Content was adapted from <a href="https://ontology101tutorial.readthedocs.io/en/latest/">Ontology 101 Tutorial</a></li>
+</ul>
+<h2 id="owl-class-restrictions">OWL class restrictions<a class="headerlink" href="#owl-class-restrictions" title="Permanent link">&para;</a></h2>
+<p>In OWL, we use object properties to describe binary relationships between two individuals (or instances). We can also use the properties to describe new classes (or sets of individuals) using <em>restrictions</em>. A restriction describes a class of individuals based on the relationships that members of the class participate in. In other words, a restriction is a kind of class, in the same way that a named class is a kind of class.</p>
+<p>For example, we can use a named class to capture all the individuals that are idiopathic diseases. But we could also describe the class of idiopathic disease as all the instances that are '<em>has modifier'</em> idiopathic disease.</p>
+<p>In OWL, there are three main types of restrictions that can be placed on classes. These are <strong>quantifier restriction</strong>, <strong>cardinality restrictions</strong>, and <strong>hasValue</strong> restriction. In this tutorial will initially focus on quantifier restrictions.</p>
+<p>Quantifier restrictions are further categorized into two types, the <strong>existential</strong> and the <strong>universal</strong> restriction.</p>
+<ul>
+<li><strong>Existential</strong> restrictions describe classes of individuals that participate in at least one relationship along a specified property to individuals that are members of a specified class. For example, the class of individuals that have at least one ( <strong>some</strong> ) 'has modifier' relationship to members of the <code>idiopathic disease</code> class. In Protege, the keyword <strong>'some'</strong> is used to denote existential restrictions.</li>
+<li><strong>Universal</strong> restrictions describe classes of individuals that for a given property only have relationships along this property to individuals that are members of a specified class. For example, we can say a cellular component is capable of many functions using the existential quantifier, however, OWL semantics assume that there could be more. We can use the universal quantifier to add closure to the existential. That is, we can assert that a cellular component is capable of these functions, and is only capable of those functions and no other. Another example is that the process of hair growth is found <strong>only</strong> in instances of the class Mammalia. In Protege the keyword '<strong>only</strong>' is used.</li>
+</ul>
+<p>In this tutorial, we will deal exclusively with the existential (some) quantifier.</p>
+<h2 id="superclass-restrictions">Superclass restrictions<a class="headerlink" href="#superclass-restrictions" title="Permanent link">&para;</a></h2>
+<p><em>Strictly speaking in OWL, you don't make relationships between classes</em>, however, using OWL restrictions we essentially achieve the same thing.</p>
+<p>We wanted to capture the knowledge that the named class '<strong>idiopathic achalasia</strong>' is an <strong>idiopathic disease</strong>. In OWL speak, we want to say that every instance of an ' <strong>idiopathic achalasia</strong>' is also an instance of the class of things that have at least one 'has modifier' relationship to an <strong>idiopathic disease</strong>. In OWL, we do this by creating an existential restriction on the <strong>idiopathic achalasia</strong> class.</p>
+<ol>
+<li>In the Entities tab, select '<strong>idiopathic achalasia</strong>' in the class hierarchy and look at its current class description in the bottom right box. </li>
+<li>Note that there are two superclasses (as denoted by the SubClass Of list). '<strong>'gastroesophageal disease'</strong>' and <strong>'has modifier' some idiopathic</strong>.</li>
+<li>Run the reasoner.</li>
+<li>You should see that this class is now inferred to be an <strong>idiopathic disease</strong> because of this SubClassOf (superclass) restriction.</li>
+</ol>
+<h2 id="equivalence-axioms-and-automatic-classification">Equivalence Axioms and Automatic classification<a class="headerlink" href="#equivalence-axioms-and-automatic-classification" title="Permanent link">&para;</a></h2>
+<p>This example introduces <strong>equivalence axioms</strong> or <strong>defined classes</strong> (also called <strong>logical definitions</strong>) and automatic classification.</p>
+<p>The example involves classification of Mendelian diseases that have a monogenic (single gene) varation. These equivalence axioms are based off the Mondo Deisgn Pattern <a href="https://github.com/monarch-initiative/mondo/blob/master/src/patterns/dosdp-patterns/disease_series_by_gene.yaml">disease_series_by_gene</a>. </p>
+<p>Constructs:<br />
+- and (intersection)<br />
+- equivalence (logical definitions)<br />
+- existential restrictions (e.g. 'disease has basis in dysfunction of')  </p>
+<h3 id="add-an-equivalence-axiom-to-an-existing-mondo-term">Add an equivalence axiom to an existing Mondo term<a class="headerlink" href="#add-an-equivalence-axiom-to-an-existing-mondo-term" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create a new branch and open (or re-open) mondo-edit.obo</li>
+<li>Navigate to the class <code>'cardioacrofacial dysplasia 1'</code></li>
+<li>According to <a href="https://omim.org/entry/619142">OMIM</a>, this disease is caused by a variation in the gene PRKACA.</li>
+<li>We want to add an equivalence axiom that says every instance of this class is a type of <code>'cardioacrofacial dysplasia'</code> that has dysfunction in the PRKACA gene.</li>
+<li>To do this, click the + next to Equivalent To in the lower right Description box.</li>
+<li>Add the following equivalence axiom:
+<code>'cardioacrofacial dysplasia'
+ and ('disease has basis in dysfunction of' some PRKACA)</code></li>
+<li>Run the reasoner.</li>
+<li>You shouldn't see any change, but try deleting the superclass assertion to 'cardioacrofacial dysplasia' and re-running the reasoner.</li>
+<li>You should see that 'cardioacrofacial dysplasia' is an inferred superclass.</li>
+<li>Undo the last change and save your work and commmit and create a pull request.</li>
+</ol>
+<h3 id="adding-classes-and-automatically-classifying-them">Adding classes and automatically classifying them<a class="headerlink" href="#adding-classes-and-automatically-classifying-them" title="Permanent link">&para;</a></h3>
+<p>For teaching purposes, let's say we need a new class that is 'fungal allergy'.</p>
+<ol>
+<li>Create a branch and re-open mondo-edit.obo</li>
+<li>Add a new term under owl:Thing named 'fungal allergy'. </li>
+<li>Following the design pattern <a href="https://github.com/monarch-initiative/mondo/blob/master/src/patterns/dosdp-patterns/allergy.yaml">allergy.yaml</a>, add the text definition, synonym and equivalentTo axiom, using the substance ECTO_0000524 'exposure to mycotoxin'.</li>
+<li>Run the reasoner and note where the class is automatically classified.</li>
+<li>Create a pull request and note in the PR what the parent class is.</li>
+</ol>
+<h3 id="debugging-automatic-classifications">Debugging automatic classifications<a class="headerlink" href="#debugging-automatic-classifications" title="Permanent link">&para;</a></h3>
+<ol>
+<li>On the same branch, add a new term under owl:Thing named 'oral cavity neoplasm'.</li>
+<li>Following the design pattern <a href="https://github.com/monarch-initiative/mondo/blob/master/src/patterns/dosdp-patterns/neoplasm_by_origin.yaml">neoplasm_by_origin</a>, add the term label and the equivalence axiom.</li>
+<li>Run the reasoner and note where the term in automatically classified. You should see it is under owl:Nothing.</li>
+<li>Click the ? next to owl:Nothing in the Description box to see the explanation.</li>
+<li>Can you determine why this is an unsatisfiable class? </li>
+<li>Create a pull request and add a comment explaining why this is unsatisfiable.</li>
+</ol>
+<h2 id="disjointness">Disjointness<a class="headerlink" href="#disjointness" title="Permanent link">&para;</a></h2>
+<p>By default, OWL assumes that these classes can overlap, i.e. there are individuals who can be instances of more than one of these classes. We want to create a restriction on our ontology that states these classes are different and that no individual can be a member of more than one of these classes. We can say this in OWL by creating a <em>disjoint classes</em> axiom.</p>
+<ol>
+<li>Create a branch in the Mondo repo (name it: disjoint-[your initials]. For example: disjoint-nv)</li>
+<li>Open the mondo-edit.obo file</li>
+<li>Per this <a href="https://github.com/monarch-initiative/mondo/issues/1221">ticket</a>, we want to assert that <strong>infectious disease</strong> and <strong>'syndromic disease'</strong> are disjoint. </li>
+<li>To do this first search for and select the <strong>infectious disease</strong> class. </li>
+<li>In the class 'Description' view, scroll down and select the (+) button next to Disjoint With. You are presented with the now familiar window allowing you to select, or type, to choose a class. In the Expression editor, add 'syndromic disease' as disjoint with 'infectious disease'.</li>
+<li>Run the ELK reasoner.</li>
+<li>Scroll to the top of your hierarchy and note that owl:Nothing has turned red. This is because there are unsatisfiable classes.</li>
+</ol>
+<h3 id="review-and-fix-one-unsatisfiable-class">Review and fix one unsatisfiable class<a class="headerlink" href="#review-and-fix-one-unsatisfiable-class" title="Permanent link">&para;</a></h3>
+<p>Below we'll review an example of one class and how to fix it. Next you should review and fix another one on your own and create a pull request for Nicole or Nico to review. Note, fixing these may require a bit of review and subjective decision making and the fix described below may not necessarily apply to each case.</p>
+<ol>
+<li>Review <code>Bickerstaff brainstem encephalitis</code>: To understand why this class appeared under owl:Nothing, first click the ? next to owl:Nothing in the Description box. (Note, this can take a few minutes).</li>
+</ol>
+<p><img alt="image" src="https://user-images.githubusercontent.com/6722114/131927956-de79cfd5-404d-49ec-8bd9-198719ab6bd5.png" /></p>
+<ol>
+<li>The explanation is displayed above - it is because this class is a descedent of <code>Guillain-Barre syndrome</code>, which is a child of <code>syndromic disease</code>. </li>
+<li>Next, we have to ask if <code>Bickerstaff brainstem encephalitis</code> is an appropriate child of <code>regional variant of Guillain-Barre syndrome</code>. Note, Mondo integrates several disease terminologies and ontologies, and brought in all the subclass hierarchies from these source ontologies. To see the source of this superclass assertion, click the @ next to the assertion.</li>
+<li>This source came from Orphanet, see below.</li>
+</ol>
+<p><img alt="image" src="https://user-images.githubusercontent.com/6722114/131928141-6706b3b7-f9e2-4726-84ee-7021922f9688.png" /></p>
+<ol>
+<li>Based on the text definition, there does not seem to be any suggestion that this disease is a type of Guillain-Barre syndrome.</li>
+<li>Assuming that this disease is not a type of Guillain-Barre syndrome, we should exclude the superclass <code>regional variant of Guillain-Barre syndrome</code> (see this <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7524576/">paper</a> and this <a href="https://jnnp.bmj.com/content/70/1/50">paper</a>. It seems a bit unclear what the relationship of BBE is to Guillain-Barre syndrome. This also brings into the question if a disease can be syndromic and an infectious disease - maybe this disjoint axiom is wrong, but let's not worry about this for the teaching purposes.)</li>
+<li>To exclude a superclass, follow the instructions <a href="https://mondo.readthedocs.io/en/latest/editors-guide/revise-terms-in-mondo/#exclude-a-superclass">here</a>.</li>
+</ol>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../developing_application_ontologies/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Developing an Application Ontology" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Developing an Application Ontology
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../templates_for_obo/" class="md-footer__link md-footer__link--next" aria-label="Next: Templates for OBO ontologies" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Templates for OBO ontologies
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.01824240.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      
+    
+  </body>
+</html>

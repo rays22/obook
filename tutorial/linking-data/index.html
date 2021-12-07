@@ -1,0 +1,2719 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.3">
+    
+    
+      
+        <title>From Tables to Linked Data - OBO Semantic Engineering Training</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.62128196.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-from-tables-to-linked-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OBO Semantic Engineering Training" class="md-header__button md-logo" aria-label="OBO Semantic Engineering Training" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OBO Semantic Engineering Training
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              From Tables to Linked Data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OBOAcademy/obook/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OBO Semantic Engineering Training" class="md-nav__button md-logo" aria-label="OBO Semantic Engineering Training" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    OBO Semantic Engineering Training
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OBOAcademy/obook/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About the course
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/" class="md-nav__link">
+        Getting started with learning
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        Overview of lessons and tutorials
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        Contribute to the course
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Courses
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Courses" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Courses
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../icbo2021/" class="md-nav__link">
+        ICBO 2021 Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/monarch-obo-training/" class="md-nav__link">
+        Monarch Ontology Training
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Lessons
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lessons" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/contributing_to_obo_ontologies/" class="md-nav__link">
+        Contributing to OBO ontologies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/ontology_pipelines/" class="md-nav__link">
+        Ontology Pipelines with ROBOT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/analysing_linked_data/" class="md-nav__link">
+        Analysing Linked Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/application_ontology_development/" class="md-nav__link">
+        Application Ontology Development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/automating_ontology_workflows/" class="md-nav__link">
+        Automating Ontology Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/developing_an_obo_ontology/" class="md-nav__link">
+        Developing an OBO Ontology
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/developing_application_ontologies/" class="md-nav__link">
+        Developing an Application Ontology
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/ontology_design/" class="md-nav__link">
+        Ontology Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/templates_for_obo/" class="md-nav__link">
+        Templates for OBO ontologies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/ontology_development/" class="md-nav__link">
+        Ontology Development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/ontology_fundamentals/" class="md-nav__link">
+        Ontology Fundamentals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/modelling_with_object_properties/" class="md-nav__link">
+        Modelling with Object Properties
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/ontology_term_use/" class="md-nav__link">
+        Ontology Term Use
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/rdf/" class="md-nav__link">
+        RDF Fundamentals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/semantic_database_fundamentals/" class="md-nav__link">
+        Semantic Database Fundamentals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lesson/using_disease_and_phenotype_ontologies/" class="md-nav__link">
+        Disease and Phenotype Ontologies
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1">
+          Ontology Pipelines - ODK, ROBOT, etc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Ontology Pipelines - ODK, ROBOT, etc" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Ontology Pipelines - ODK, ROBOT, etc
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robot_tutorial_1/" class="md-nav__link">
+        ROBOT Mini-Tutorial 1 - Convert, Extract and Template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robot_tutorial_2/" class="md-nav__link">
+        ROBOT Mini-Tutorial 2 - Annotate, Merge, Reason and Diff
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robot_tutorial_qc/" class="md-nav__link">
+        ROBOT Mini-Tutorial QC - Quality Control with report and query
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setting-up-project-odk/" class="md-nav__link">
+        ODK - Getting started with your own repo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-dynamic-imports-odk/" class="md-nav__link">
+        ODK - Managing imports
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-ontology-releases-odk/" class="md-nav__link">
+        ODK - Managing ontology releases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrating-ontology-to-odk/" class="md-nav__link">
+        ODK - Migrating to ODK
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          Templates
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Templates" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Templates
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dosdp_template/" class="md-nav__link">
+        DOSDP Templates
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_3" type="checkbox" id="__nav_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_3">
+          Git, GitHub and Collaborative Workflows
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Git, GitHub and Collaborative Workflows" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          Git, GitHub and Collaborative Workflows
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github_fundamentals/" class="md-nav__link">
+        GitHub Fundamentals for OBO Engineers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github_issues/" class="md-nav__link">
+        GitHub Issue for OBO Engineers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-ontology-project/" class="md-nav__link">
+        Managing OBO ontology projects
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_4" type="checkbox" id="__nav_7_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_4">
+          Dealing with Semantic Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dealing with Semantic Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          Dealing with Semantic Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          From Tables to Linked Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        From Tables to Linked Data
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-before" class="md-nav__link">
+    0. Before
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-getting-organized" class="md-nav__link">
+    1. Getting Organized
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-getting-copies" class="md-nav__link">
+    2. Getting Copies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-getting-my-bearings" class="md-nav__link">
+    3. Getting My Bearings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-getting-structured" class="md-nav__link">
+    4. Getting Structured
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-getting-clean" class="md-nav__link">
+    5. Getting Clean
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sparql/" class="md-nav__link">
+        Basic SPARQL for OBO Engineers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_5" type="checkbox" id="__nav_7_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_5">
+          General Ontology Modelling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General Ontology Modelling" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          General Ontology Modelling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fhkb/" class="md-nav__link">
+        Family History Knowledge Base (FHKB) tutorial
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          How-to guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How-to guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          How-to guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Protege
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Protege" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Protege
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/installing_elk_in_protege/" class="md-nav__link">
+        Installing ELK in Protege
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/switching_ontologies/" class="md-nav__link">
+        Switching Ontologies in Protege
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/protege_browse_search/" class="md-nav__link">
+        Browsing and Searching
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" type="checkbox" id="__nav_8_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_2">
+          ODK
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ODK" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_2">
+          <span class="md-nav__icon md-icon"></span>
+          ODK
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/setup_ontology_development_odk/" class="md-nav__link">
+        Get set up for ODK-based ontology development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/odk_setup/" class="md-nav__link">
+        Setting up the ODK
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Git and Github
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Git and Github" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Git and Github
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/clone_mondo_repo/" class="md-nav__link">
+        Clone a repository
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/github_create_fork/" class="md-nav__link">
+        Creating an GitHub Fork
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/github_create_pull_request/" class="md-nav__link">
+        Creating an GitHub Pull Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/change_files_pull_request/" class="md-nav__link">
+        Change a pull request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/fixing-conflicts/" class="md-nav__link">
+        Fixing conflicts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_4" type="checkbox" id="__nav_8_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_4">
+          Quality control
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Quality control" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_4">
+          <span class="md-nav__icon md-icon"></span>
+          Quality control
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/deploy_custom_obo_dashboard/" class="md-nav__link">
+        Deploy a custom OBO-Dashboard
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/other_resources/" class="md-nav__link">
+        Other useful resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/github_desktop/" class="md-nav__link">
+        GitHub Desktop
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/semantic_engineering_toolbox/" class="md-nav__link">
+        Semantic Engineering Toolbox
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/tables-and-triples/" class="md-nav__link">
+        Tables and Triples
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/reasoning/" class="md-nav__link">
+        Reasoning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/ontology-curator/" class="md-nav__link">
+        A day in the life of an ontology curator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/git_faq/" class="md-nav__link">
+        Git FAQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/owl_formats_variants/" class="md-nav__link">
+        OWL, OBO, JSON? Base, simple, full, basic? What should you use, and why?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/mungall_blog_radar/" class="md-nav__link">
+        Monkeying around with OWL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/odk/" class="md-nav__link">
+        Ontology Development Kit (ODK)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          OBOOK Editors
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OBOOK Editors" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          OBOOK Editors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../images/" class="md-nav__link">
+        How to add images
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/template/" class="md-nav__link">
+        New lesson template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teaching/case_studies/" class="md-nav__link">
+        Case studies for teaching
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-before" class="md-nav__link">
+    0. Before
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-getting-organized" class="md-nav__link">
+    1. Getting Organized
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-getting-copies" class="md-nav__link">
+    2. Getting Copies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-getting-my-bearings" class="md-nav__link">
+    3. Getting My Bearings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-getting-structured" class="md-nav__link">
+    4. Getting Structured
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-getting-clean" class="md-nav__link">
+    5. Getting Clean
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/OBOAcademy/obook/edit/master/docs/tutorial/linking-data.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="tutorial-from-tables-to-linked-data">Tutorial: From Tables to Linked Data<a class="headerlink" href="#tutorial-from-tables-to-linked-data" title="Permanent link">&para;</a></h1>
+<p>These are the kinds of things that I do
+when I need to work with a new dataset.
+My goal is to have data that makes good sense
+and that I can integrate with other data
+using standard technologies:
+Linked Data.</p>
+<h2 id="0-before">0. Before<a class="headerlink" href="#0-before" title="Permanent link">&para;</a></h2>
+<p>The boss just sent me this new table to figure out:</p>
+<table>
+<thead>
+<tr>
+<th>datetime</th>
+<th>investigator</th>
+<th>subject</th>
+<th>species</th>
+<th>strain</th>
+<th>sex</th>
+<th>group</th>
+<th>protocol</th>
+<th>organ</th>
+<th>disease</th>
+<th>qualifier</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1/1/14 10:21 AM</td>
+<td>JAO</td>
+<td>12</td>
+<td>RAT</td>
+<td>F 344/N</td>
+<td>FEMALE</td>
+<td>1</td>
+<td>HISTOPATHOLOGY</td>
+<td>LUNG</td>
+<td>ADENOCARCINOMA</td>
+<td>SEVERE</td>
+<td></td>
+</tr>
+<tr>
+<td>1/1/14 10:30 AM</td>
+<td>JO</td>
+<td>31</td>
+<td>MOUSE</td>
+<td>B6C3F1</td>
+<td>MALE</td>
+<td>2</td>
+<td>HISTOPATHOLOGY</td>
+<td>NOSE</td>
+<td>INFLAMMATION</td>
+<td>MILD</td>
+<td></td>
+</tr>
+<tr>
+<td>1/1/14 10:45 AM</td>
+<td>JAO</td>
+<td>45</td>
+<td>RAT</td>
+<td>F 344/N</td>
+<td>MALE</td>
+<td>1</td>
+<td>HISTOPATHOLOGY</td>
+<td>ADRENAL CORTEX</td>
+<td>NECROSIS</td>
+<td>MODERATE</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>It doesn't seem too bad,
+but there's lots of stuff that I don't quite understand.
+Where to start?</p>
+<h2 id="1-getting-organized">1. Getting Organized<a class="headerlink" href="#1-getting-organized" title="Permanent link">&para;</a></h2>
+<p>Before I do anything else,
+I'm going to set up a new project for working with this data.
+Maybe I'll change my mind later
+and want to merge the new project with an existing project,
+but it never hurts to start from a nice clean state.</p>
+<p>I'll make a new directory in a sensible place
+with a sensible name.
+In my case I have a <code>~/Repositories/</code> directory,
+with subdirectories for GitHub and various GitLab servers,
+a <code>local</code> directory for projects I don't plan to share,
+and a <code>temp</code> directory for projects that I don't need to keep.
+I'm not sure if I'm going to share this work,
+so it can go in a new subdirectory of <code>local</code>.
+I'll call it "linking-data-tutorial" for now.</p>
+<p>Then I'll run <code>git init</code> to turn that directory into a git repository.
+For now I'm just going to work locally,
+but later I can make a repository on GitHub
+and push my local repository there.</p>
+<p>Next I'll create a <code>README.md</code> file
+where I'll keep notes for myself to read later.
+My preferred editor is <a href="https://kakoune.org">Kakoune</a>.</p>
+<p>So I'll open a terminal and run these commands:</p>
+<pre><code class="language-sh">$ cd ~/Repositories/local/
+$ mkdir linking-data-tutorial
+$ cd linking-data-tutorial
+$ git init
+$ kak README.md
+</code></pre>
+<p>In the README I'll start writing something like this:</p>
+<pre><code class="language-markdown"># Linking Data Tutorial
+
+An example of how to convert a dataset to Linked Data.
+
+The source data is available from
+&lt;https://github.com/jamesaoverton/obook/tree/master/03-RDF/data.csv&gt;
+</code></pre>
+<p>Maybe this information should go somewhere else eventually,
+but the README is a good place to start.</p>
+<p>"Commit early, commit often" they say, so:</p>
+<pre><code class="language-sh">$ git add README.md
+$ git commit -m &quot;Initial commit&quot;
+</code></pre>
+<h2 id="2-getting-copies">2. Getting Copies<a class="headerlink" href="#2-getting-copies" title="Permanent link">&para;</a></h2>
+<p>Data has an annoying tendency to get changed.
+You don't want it changing out from under you
+while you're in the middle of something.
+So the next thing to do is get a copy of the data
+and store it locally.
+If it's big, you can store a compressed copy.
+If it's too big to fit on your local machine,
+well keep the best notes you can of how to get to the data,
+and what operations you're doing on it.</p>
+<p>I'm going to make a <code>cache</code> directory
+and store all my "upstream" data there.
+I'm going to fetch the data and that's it --
+I'm <strong>not</strong> going to edit these files.
+When I want to change the data I'll make copies in another directory.
+I don't want git to track the cached data,
+so I'll add <code>/cache/</code> to <code>.gitignore</code>
+and tell git to track <em>that</em>.
+Then I'll use <code>curl</code> to download the file.</p>
+<pre><code class="language-sh">$ mkdir cache
+$ echo &quot;/cache/&quot; &gt;&gt; .gitignore
+$ git add .gitignore
+$ git commit -m &quot;Ignore /cache/ directory&quot;
+$ cd cache
+$ curl -LO &quot;https://github.com/jamesaoverton/obook/raw/master/03-RDF/data.csv&quot;
+$ ls
+data.csv
+$ cd ..
+$ ls -a
+.gitignore data README.md
+</code></pre>
+<h2 id="3-getting-my-bearings">3. Getting My Bearings<a class="headerlink" href="#3-getting-my-bearings" title="Permanent link">&para;</a></h2>
+<p>The first thing to do is look at the data.
+In this case I have just one table in CSV format,
+so I can use any number of tools to open the file and look around.
+I bet the majority of people would reach for Excel.
+My (idiosyncratic) preference is <a href="https://www.visidata.org">VisiData</a>.</p>
+<p>What am I looking for?
+A bunch of different things:</p>
+<ul>
+<li>what do the rows represent?</li>
+<li>what columns do I have?</li>
+<li>for each column, what sorts of values do I have?</li>
+</ul>
+<p>In my README file I'll make a list of the columns
+like this:</p>
+<pre><code class="language-markdown">- datetime
+- investigator
+- subject
+- species
+- strain
+- sex
+- group
+- protocol
+- organ
+- disease
+- qualifier
+- comment
+</code></pre>
+<p>Then I'll make some notes for myself:</p>
+<pre><code class="language-markdown">- datetime: American-style dates, D/M/Y or M/D/Y?
+- investigator: initials, ORCID?
+- subject: integer ID
+- species: common name for species, NCBITaxon?
+- strain: some sort of code with letters, numbers, spaces, some punctuation
+- sex: string female/male
+- group: integer ID
+- protocol: string, OBI?
+- organ: string, UBERON?
+- disease: string, DO/MONDO?
+- qualifier: string, PATO?
+- comment: ???
+</code></pre>
+<p>You can see that I'm trying to figure out what's in each column.
+I'm also thinking ahead to OBO ontologies that I know of
+that may have terms that I can use for each column.</p>
+<h2 id="4-getting-structured">4. Getting Structured<a class="headerlink" href="#4-getting-structured" title="Permanent link">&para;</a></h2>
+<p>In the end, I want to have nice, clean Linked Data.
+But I don't have to get there in one giant leap.
+Instead I'll take a bunch of small, incremental steps.</p>
+<p>There's lots of tools I can use,
+but this time I'll use SQLite.</p>
+<p>First I'll set up some more directories.
+I'll create a <code>build</code> directory
+where I'll store temporary files.
+I don't want git to track this directory,
+so I'll add it to <code>.gitignore</code>.</p>
+<pre><code class="language-sh">$ mkdir build/
+$ echo &quot;/build/&quot; &gt;&gt; .gitignore
+$ git add .gitignore
+$ git commit -m &quot;Ignore /build/ directory&quot;
+</code></pre>
+<p>I'll also add a <code>src</code> directory to store code.
+I do want to track <code>src</code> with git.</p>
+<pre><code class="language-sh">$ mkdir src
+$ kak src/data.sql
+</code></pre>
+<p>In <code>src/data.sql</code> I'll add just enough to import <code>build/data.csv</code>:</p>
+<p>```sql #src/data.sql
+-- import build/data.csv
+.mode csv
+.import build/data.csv data_csv</p>
+<pre><code>
+This will create a `build/data.db` file
+and import `build/data.csv` into a `data_csv` table.
+Does it work?
+
+```sh
+$ sqlite3 build/data.db &lt; src/data.sql
+$ sqlite3 build/data.db &lt;&lt;&lt; &quot;SELECT * FROM data_csv LIMIT 1;&quot;
+2014-01-01 10:21:00-0500|JAO|12|RAT|F 344/N|FEMALE|1|HISTOPATHOLOGY|LUNG|ADENOCARCINOMA|SEVERE|
+</code></pre>
+<p>Nice!</p>
+<p>Note that I didn't even specify a schema for <code>data_csv</code>.
+It uses the first row as the column names,
+and the type of every column is <code>TEXT</code>.
+Here's the schema I end up with:</p>
+<pre><code class="language-sh">$ sqlite3 build/data.db &lt;&lt;&lt; &quot;.schema data_csv&quot;
+CREATE TABLE data_csv(
+  &quot;datetime&quot; TEXT,
+  &quot;investigator&quot; TEXT,
+  &quot;subject&quot; TEXT,
+  &quot;species&quot; TEXT,
+  &quot;strain&quot; TEXT,
+  &quot;sex&quot; TEXT,
+  &quot;group&quot; TEXT,
+  &quot;protocol&quot; TEXT,
+  &quot;organ&quot; TEXT,
+  &quot;disease&quot; TEXT,
+  &quot;qualifier&quot; TEXT,
+  &quot;comment&quot; TEXT
+);
+</code></pre>
+<p>I'm going to want to update <code>src/data.sql</code>
+then rebuild the database over and over.
+It's small, so this will only take a second.
+If it was big,
+then I would copy a subset into <code>build/data.csv</code> for now
+so that I the script still runs in a second or two
+and I can iterate quickly.
+I'll write a <code>src/build.sh</code> script to make life a little easier:</p>
+<pre><code class="language-sh">#!/bin/sh
+
+rm -f build/*
+cp cache/data.csv build/data.csv
+sqlite3 build/data.db &lt; src/data.sql
+</code></pre>
+<p>Does it work?</p>
+<pre><code class="language-sh">$ sh src/build.sh
+</code></pre>
+<p>Nice!
+Time to update the README:</p>
+<pre><code class="language-markdown">## Requirements
+
+- [SQLite3](https://sqlite.org/index.html)
+
+## Usage
+
+Run `sh src/build.sh`
+</code></pre>
+<p>I'll commit my work in progress:</p>
+<pre><code class="language-sh">$ git add src/data.sql src/build.sh
+$ git add --update
+$ git commit -m &quot;Load data.csv into SQLite&quot;
+</code></pre>
+<p>Now I have a script
+that executes a SQL file
+that loads the source data into a new database.
+I'll modify the <code>src/data.sql</code> file
+in a series of small steps
+until it has the structure that I want.</p>
+<h2 id="5-getting-clean">5. Getting Clean<a class="headerlink" href="#5-getting-clean" title="Permanent link">&para;</a></h2>
+<p>In the real world, data is always a mess.
+It takes real work to clean it up.
+And really, it's almost never perfectly clean.</p>
+<p>It's important to recognize that cleaning data has diminishing returns.
+There's low hanging fruit:
+easy to clean, often with code, and bringing big benefits.
+Then there's tough stuff
+that requires an expert to work through the details,
+row by row.</p>
+<p>The first thing to do is figure out the schema you want.
+I'll create a new <code>data</code> table
+and start with the default schema from <code>data_csv</code>.
+Notice that in the default schema all the column names are quoted.
+That's kind of annoying.
+But when I remove the quotation marks
+I realize that one of the column names is "datetime",
+but <code>datetime</code> is a keyword in SQLite!
+You can't use it as a column name without quoting.
+I'll rename it to "assay_datetime".
+I have the same problem with "group".
+I'll rename "group" to "group_id"
+and "subject" to "subject_id".
+The rest of the column names seem fine.</p>
+<p>I want "assay_datetime" to be in standard ISO datetime format,
+but SQLite stores these as TEXT.
+The "subject" and "group" columns are currently integers,
+but I plan to make them into URIs to CURIEs.
+So everything will still be TEXT.</p>
+<pre><code class="language-sql">CREATE TABLE data(
+  assay_datetime TEXT,
+  investigator TEXT,
+  subject_id TEXT,
+  species TEXT,
+  strain TEXT,
+  sex TEXT,
+  group_id TEXT,
+  protocol TEXT,
+  organ TEXT,
+  disease TEXT,
+  qualifier TEXT,
+  comment TEXT
+);
+</code></pre>
+<p>The dates currently look like "1/1/14 10:21 AM".
+Say I know that they were done on Eastern Standard Time.
+How do I convert to ISO dates like "2014-01-01 10:21:00-0500"?
+Well SQLite isn't the right tool for this.
+The Unix <code>date</code> command does a nice job, though:</p>
+<pre><code class="language-sh">$ date -d &quot;1/1/14 10:21 AM EST&quot; +&quot;%Y-%m-%d %H:%M:%S%z&quot;
+2014-01-01 10:21:00-0500
+</code></pre>
+<p>I can run that over each line of the file using <code>awk</code>.
+So I update the <code>src/build.sh</code>
+to rework the <code>build/data.csv</code> before I import:</p>
+<p>```sh #src/build.sh</p>
+<h1 id="binsh">!/bin/sh<a class="headerlink" href="#binsh" title="Permanent link">&para;</a></h1>
+<p>rm -f build/*</p>
+<p>head -n1 cache/data.csv &gt; build/data.csv
+tail -n+2 cache/data.csv \
+| awk 'BEGIN{FS=","; OFS=","} {
+  "date -d \""$1" EST\" +\"%Y-%m-%d %H:%M:%S%z\"" | getline $1;
+  print $0
+}' \</p>
+<blockquote>
+<blockquote>
+<p>build/data.csv</p>
+</blockquote>
+</blockquote>
+<p>sqlite3 build/data.db &lt; src/data.sql</p>
+<pre><code>
+One more problem I could clean up
+is that &quot;JO&quot; should really be &quot;JAO&quot; --
+that's just a typo,
+and they should both refer to James A. Overton.
+I could make that change in `src/build.sh`,
+but I'll do it in `src/data.sql` instead.
+I'll write a query to copy all the rows of `data_csv` into `data`
+and then I'll update `data` with some fixes.
+
+```sql
+-- copy from data_csv to data
+INSERT INTO data SELECT * FROM data_csv;
+
+-- clean data
+UPDATE data SET investigator=&quot;JAO&quot; WHERE investigator=&quot;JO&quot;;
+</code></pre>
+<p>Honestly, it took me quite a while to write that <code>awk</code> command.
+It's a very powerful tool,
+but I don't use it enough to remember how it works.
+You might prefer to write yourself a Python script, or some R code.
+You could use that instead of this SQL UPDATE as well.
+I just wanted to show you two of the thousands of ways to do this.
+If there's a lot of replacements like "JO",
+then you might also consider listing them in another table
+that you can read into your script.</p>
+<p>The important part is to <em>automate</em> your cleaning!</p>
+<p>Why didn't I just edit <code>cache/data.csv</code> in Excel?
+In step 2 I saved a copy of the data
+because I didn't want it to change while I was working on it,
+but I <em>do</em> expect it to change!
+By automating the cleaning process,
+I should be able to just update <code>cache/data.csv</code>
+run everything again,
+and the fixes will be applied again.
+I don't want to do all this work manually
+every time the upstream data is updated.</p>
+<p>I'll commit my work in progress:</p>
+<pre><code class="language-sh">$ git add --update
+$ git commit -m &quot;Start cleaning data&quot;
+</code></pre>
+<p>Cleaning can take a lot of work.
+This is example table is pretty clean already.
+The next hard part is sorting out your terminology.</p>
+<h2 id="6-getting-connected">6. Getting Connected<a class="headerlink" href="#6-getting-connected" title="Permanent link">&para;</a></h2>
+<p>It's pretty easy to convert a table <em>structure</em> to triples.
+The hard part is converting the table <em>contents</em>.
+There are some identifiers in the table that would be better as URLs,
+and there's a bunch of terminology that would be better
+if it was linked to an ontology or other system.</p>
+<p>I'll start with the identifiers that are <em>local</em> to this data:
+subject_id and group_id.
+I can convert them to URLs by defining a prefix
+and then just using that prefix.
+I'll use string concatenation to update the table:</p>
+<pre><code class="language-sql">-- update subject and groupd IDs
+UPDATE data SET subject_id='ex:subject-' || subject_id;
+UPDATE data SET group_id='ex:group-' || group_id;
+</code></pre>
+<p>Now I'll check my work:</p>
+<pre><code class="language-sh">$ sqlite3 build/data.db &lt;&lt;&lt; &quot;SELECT * FROM data_csv LIMIT 1;&quot;
+2014-01-01 10:21:00-0500|JAO|ex:subject-12|RAT|F 344/N|FEMALE|ex:group-1|HISTOPATHOLOGY|LUNG|ADENOCARCINOMA|SEVERE|
+</code></pre>
+<p>I should take a moment to tell you,
+that while I was writing the Turtle conversion code later in this essay,
+I had to come back here and change these identifiers.
+The thing is that Turtle is often more strict than I expect
+about identifier syntax.
+Turtle identifiers <em>look</em> like
+<a href="https://en.wikipedia.org/wiki/CURIE">CURIEs</a>,
+but they're actually
+<a href="https://en.wikipedia.org/wiki/QName">QNames</a>.
+CURIEs are pretty much just just URLs shortened with a prefix,
+so almost anything goes.
+QNames come from <a href="https://en.wikipedia.org/wiki/XML">XML</a>,
+and Turtle identifiers have to be valid XML element names.</p>
+<p>I always remember that I need to stick to alphanumeric characters,
+and that I have to replace whitespace and punctuation with a <code>-</code> or <code>_</code>.
+I didn't remember that the local part (aka "suffix", aka "NCName")
+can't start with a digit.
+So I tried to use "subject:12" and "group:1" as my identifiers.
+That worked fine until I generated Turtle.
+The Turtle <em>looked</em> fine,
+so it took me quite a while to figure out why
+it looked very wrong when I converted it into RDXML format.</p>
+<p>This kind of thing happens to me all the time.
+I'm almost always using a mixture of technologies
+based on different sets of assumptions,
+and there are always things that don't line up.
+That's why I like to work in small iterations,
+checking my work as I go
+(preferrably with automated tests),
+and keeping everything in version control.
+When I need to make a change like this one,
+I just circle back and iterate again.</p>
+<p>The next thing is to tackle the terminology.
+First I'll just make a list of the terms I'm using
+from the relevant columns in <code>build/term.tsv</code>:</p>
+<p>```sh #collect
+$ sqlite3 build/data.db &lt;&lt; EOF &gt; build/term.tsv
+SELECT investigator FROM data
+UNION SELECT species FROM data
+UNION SELECT strain FROM data
+UNION SELECT strain FROM data
+UNION SELECT sex FROM data
+UNION SELECT protocol FROM data
+UNION SELECT organ FROM data
+UNION SELECT disease FROM data
+UNION SELECT qualifier FROM data;
+EOF</p>
+<pre><code>
+It's a lot of work to go through all those terms
+and find good ontology terms.
+I'm going to do that hard work for you
+(just this once!)
+so we can keep moving.
+I'll add this table to `src/term.tsv`
+
+id | code | label
+---|---|---
+obo:NCBITaxon_10116 | RAT | Rattus norvegicus
+obo:NCBITaxon_10090 | MOUSE | Mus musculus
+ex:F344N | F 344/N | F 344/N
+ex:B6C3F1 | B6C3F1 | B6C3F1
+obo:PATO_0000383 | FEMALE | female
+obo:PATO_0000384 | MALE | male
+obo:OBI_0600020 | HISTOPATHOLOGY | histology
+obo:UBERON_0002048 | LUNG | lung
+obo:UBERON_0007827 | NOSE | external nose
+obo:UBERON_0001235 | ADRENAL CORTEX | adrenal cortex
+obo:MPATH_268 | ADENOCARCINOMA | adenocarcinoma
+obo:MPATH_212 | INFLAMMATION | inflammation
+obo:MPATH_4 | NECROSIS | necrosis
+obo:PATO_0000396 | SEVERE | severe intensity
+obo:PATO_0000394 | MILD | mild intensity
+obo:PATO_0000395 | MODERATE | moderate intensity
+orcid:0000-0001-5139-5557 | JAO | James A. Overton
+
+And I'll add these prefixes to `src/prefix.tsv`:
+
+prefix | base
+---|---
+rdf | http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs | http://www.w3.org/2000/01/rdf-schema#
+xsd | http://www.w3.org/2001/XMLSchema#
+owl | http://www.w3.org/2002/07/owl#
+obo | http://purl.obolibrary.org/obo/
+orcid | http://orcid.org/
+ex | https://example.com/
+subject | https://example.com/subject/
+group | https://example.com/group/
+
+Now I can import these tables into SQL
+and use the term table as a FOREIGN KEY constraint
+on data:
+
+```sql #src/data.sql
+.mode tabs
+
+CREATE TABLE prefix (
+  prefix TEXT PRIMARY KEY,
+  base TEXT UNIQUE
+);
+.import --skip 1 src/prefix.tsv prefix
+
+CREATE TABLE term (
+  id TEXT PRIMARY KEY,
+  code TEXT UNIQUE,
+  label TEXT UNIQUE
+);
+.import --skip 1 src/term.tsv term
+
+CREATE TABLE data(
+  assay_datetime TEXT,
+  investigator TEXT,
+  subject_id TEXT,
+  species TEXT,
+  strain TEXT,
+  sex TEXT,
+  group_id TEXT,
+  protocol TEXT,
+  organ TEXT,
+  disease TEXT,
+  qualifier TEXT,
+  comment TEXT,
+  FOREIGN KEY(investigator) REFERENCES term(investigator),
+  FOREIGN KEY(species) REFERENCES term(species),
+  FOREIGN KEY(strain) REFERENCES term(strain),
+  FOREIGN KEY(sex) REFERENCES term(sex),
+  FOREIGN KEY(protocol) REFERENCES term(protocol),
+  FOREIGN KEY(organ) REFERENCES term(organ),
+  FOREIGN KEY(disease) REFERENCES term(disease),
+  FOREIGN KEY(qualifier) REFERENCES term(qualifier)
+);
+
+-- copy from data_csv to data
+INSERT INTO data SELECT * FROM data_csv;
+
+-- clean data
+UPDATE data SET investigator='JAO' WHERE investigator='JO';
+
+-- update subject and groupd IDs
+UPDATE data SET subject_id='ex:subject-' || subject_id;
+UPDATE data SET group_id='ex:group-' || group_id;
+</code></pre>
+<p>I'll update the README:</p>
+<pre><code class="language-markdown">See `src/` for:
+
+- `prefix.tsv`: shared prefixes
+- `term.tsv`: terminology
+</code></pre>
+<p>I'll commit my work in progress:</p>
+<pre><code class="language-sh">$ git add src/prefix.tsv src/term.tsv
+$ git add --update
+$ git commit -m &quot;Add and apply prefix and term tables&quot;
+</code></pre>
+<p>Now all the terms are linked to controlled vocabularies
+of one sort or another.
+If I want to see the IDs for those links instead of the "codes"
+I can define a VIEW:</p>
+<p>```sql #src/data.sql
+CREATE VIEW linked_data_id AS
+SELECT assay_datetime,
+  investigator_term.id AS investigator,
+  subject_id,
+  species_term.id AS species,
+  strain_term.id AS strain,
+  sex_term.id AS sex,
+  group_id,
+  protocol_term.id AS protocol,
+  organ_term.id AS organ,
+  disease_term.id AS disease,
+  qualifier_term.id AS qualifier
+FROM data
+JOIN term as investigator_term ON data.investigator = investigator_term.code
+JOIN term as species_term ON data.species = species_term.code
+JOIN term as strain_term ON data.strain = strain_term.code
+JOIN term as sex_term ON data.sex = sex_term.code
+JOIN term as protocol_term ON data.protocol = protocol_term.code
+JOIN term as organ_term ON data.organ = organ_term.code
+JOIN term as disease_term ON data.disease = disease_term.code
+JOIN term as qualifier_term ON data.qualifier = qualifier_term.code;</p>
+<pre><code>
+I'll check:
+
+```sh
+$ sqlite3 build/data.db &lt;&lt;&lt; &quot;SELECT * FROM linked_ids LIMIT 1;&quot;
+2014-01-01 10:21:00-0500|orcid:0000-0001-5139-5557|ex:subject-12|obo:NCBITaxon_10116|ex:F344N|obo:PATO_0000383|ex:group-1|obo:OBI_0600020|obo:UBERON_0002048|obo:MPATH_268|obo:PATO_0000396
+</code></pre>
+<p>I can also define a similar view for their "official" labels:</p>
+<p>```sql #src/data.sql
+CREATE VIEW linked_data_label AS
+SELECT assay_datetime,
+  investigator_term.label AS investigator,
+  subject_id,
+  species_term.label AS species,
+  strain_term.label AS strain,
+  sex_term.label AS sex,
+  group_id,
+  protocol_term.label AS protocol,
+  organ_term.label AS organ,
+  disease_term.label AS disease,
+  qualifier_term.label AS qualifier
+FROM data
+JOIN term as investigator_term ON data.investigator = investigator_term.code
+JOIN term as species_term ON data.species = species_term.code
+JOIN term as strain_term ON data.strain = strain_term.code
+JOIN term as sex_term ON data.sex = sex_term.code
+JOIN term as protocol_term ON data.protocol = protocol_term.code
+JOIN term as organ_term ON data.organ = organ_term.code
+JOIN term as disease_term ON data.disease = disease_term.code
+JOIN term as qualifier_term ON data.qualifier = qualifier_term.code;</p>
+<pre><code>
+I'll check:
+
+```sh
+$ sqlite3 build/data.db &lt;&lt;&lt; &quot;SELECT * FROM linked_data_label LIMIT 1;&quot;
+2014-01-01 10:21:00-0500|James A. Overton|ex:subject-12|Rattus norvegicus|F 344/N|female|ex:group-1|histology|lung|adenocarcinoma|severe intensity
+</code></pre>
+<p>I'll commit my work in progress:</p>
+<pre><code class="language-sh">$ git add --update
+$ git commit -m &quot;Add linked_data tables&quot;
+</code></pre>
+<p>Now the tables use URLs and is connected to ontologies and stuff.
+But are we Linked yet?</p>
+<h2 id="7-getting-triples">7. Getting Triples<a class="headerlink" href="#7-getting-triples" title="Permanent link">&para;</a></h2>
+<p>SQL tables aren't an official Linked Data format.
+Of all the RDF formats, I prefer Turtle.
+It's tedious but not difficult to get Turtle out of SQL.
+These query do what I need them to do,
+but note that if the literal data contained quotation marks
+(for instance)
+then I'd have to do more work to escape those.
+First I create a triple table:</p>
+<p>```sql #src/data.sql
+CREATE TABLE triple (
+  subject TEXT,
+  predicate TEXT,
+  object TEXT,
+  literal INTEGER -- 0 for object IRI, 1 for object literal
+);</p>
+<p>-- create triples from term table
+INSERT INTO triple(subject, predicate, object, literal)
+SELECT id, 'rdfs:label', label, 1
+FROM term;</p>
+<p>-- create triples from data table
+INSERT INTO triple(subject, predicate, object, literal)
+SELECT 'ex:assay-' || data.rowid, 'ex:column-assay_datetime', assay_datetime, 1
+FROM data;</p>
+<p>INSERT INTO triple(subject, predicate, object, literal)
+SELECT 'ex:assay-' || data.rowid, 'ex:column-investigator', term.id, 0
+FROM data
+JOIN term AS term ON data.investigator = term.code;</p>
+<p>INSERT INTO triple(subject, predicate, object, literal)
+SELECT 'ex:assay-' || data.rowid, 'ex:column-subject_id', subject_id, 0
+FROM data;</p>
+<p>INSERT INTO triple(subject, predicate, object, literal)
+SELECT 'ex:assay-' || data.rowid, 'ex:column-species', term.id, 0
+FROM data
+JOIN term AS term ON data.species = term.code;</p>
+<p>INSERT INTO triple(subject, predicate, object, literal)
+SELECT 'ex:assay-' || data.rowid, 'ex:column-strain', term.id, 0
+FROM data
+JOIN term AS term ON data.strain = term.code;</p>
+<p>INSERT INTO triple(subject, predicate, object, literal)
+SELECT 'ex:assay-' || data.rowid, 'ex:column-sex', term.id, 0
+FROM data
+JOIN term AS term ON data.sex = term.code;</p>
+<p>INSERT INTO triple(subject, predicate, object, literal)
+SELECT 'ex:assay-' || data.rowid, 'ex:column-group_id', group_id, 0
+FROM data;</p>
+<p>INSERT INTO triple(subject, predicate, object, literal)
+SELECT 'ex:assay-' || data.rowid, 'ex:column-protocol', term.id, 0
+FROM data
+JOIN term AS term ON data.protocol = term.code;</p>
+<p>INSERT INTO triple(subject, predicate, object, literal)
+SELECT 'ex:assay-' || data.rowid, 'ex:column-organ',term.id, 0
+FROM data
+JOIN term AS term ON data.organ= term.code;</p>
+<p>INSERT INTO triple(subject, predicate, object, literal)
+SELECT 'ex:assay-' || data.rowid, 'ex:column-disease', term.id, 0
+FROM data
+JOIN term AS term ON data.disease = term.code;</p>
+<p>INSERT INTO triple(subject, predicate, object, literal)
+SELECT 'ex:assay-' || data.rowid, 'ex:column-qualifier', term.id, 0
+FROM data
+JOIN term AS term ON data.qualifier = term.code;</p>
+<pre><code>
+Then I can turn triples into Turtle
+using string concatenation:
+
+```sql #src/turtle.sql
+SELECT '@prefix ' || prefix || ': &lt;' || base || '&gt; .'
+FROM prefix
+UNION ALL
+SELECT ''
+UNION ALL
+SELECT subject || ' ' ||
+  predicate || ' ' ||
+  CASE literal
+    WHEN 1 THEN '&quot;' || object || '&quot;'
+    ELSE object
+  END
+  || ' . '
+FROM triple;
+</code></pre>
+<p>I can add this to the <code>src/build.sh</code>:</p>
+<p>```sh #src/build.sh
+sqlite3 build/data.db &lt; src/turtle.sql &gt; build/data.ttl</p>
+<pre><code>
+Here's just a bit of that `build/data.ttl` file:
+
+```ttl
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+orcid:0000-0001-5139-5557 rdfs:label &quot;James A. Overton&quot; .
+assay:1 column:assay_datetime &quot;2014-01-01 10:21:00-0500&quot;^^xsd:datetime .
+assay:1 column:investigator orcid:0000-0001-5139-5557 .
+</code></pre>
+<p>SQL is not a particularly expressive language.
+Building the triple table is straightforward but verbose.
+I could have done the same thing with much less Python code.
+(Or I could have been clever and generated some SQL to execute!)</p>
+<p>I'll commit my work in progress:</p>
+<pre><code class="language-sh">$ git add src/turtle.sql
+$ git add --update
+$ git commit -m &quot;Convert to Turtle&quot;
+</code></pre>
+<p>So technically I have a Turtle file.
+Linked Data!
+Right?
+Well, it's kind of "flat".
+It still looks more like a table than a graph.</p>
+<h2 id="8-getting-linked">8. Getting Linked<a class="headerlink" href="#8-getting-linked" title="Permanent link">&para;</a></h2>
+<p>The table I started with is very much focused on the data:
+there was some sort of assay done,
+and this is the information that someone recorded about it.
+The Turtle I just ended up with is basically the same.</p>
+<p>Other people may have assay data.
+They may have tables that they converted into Turtle.
+So can I just merge them?
+Technically yes:
+I can put all these triples in one graph together.
+But I'll still just have "flat" chunks of data
+representing rows
+sitting next to other rows,
+without really linking together.</p>
+<p>The next thing I would do with this data
+is reorganized it based on the <em>thing</em> it's talking about.
+I know that:</p>
+<ul>
+<li>there was an assay</li>
+<li>the assay was performed at a certain time,
+  using a certain protocol</li>
+<li>there was a person who performed the assay</li>
+<li>there was a subject animal of some species, strain, and sex</li>
+<li>the subject animal belonged to a study group</li>
+<li>the subject animal had some organs</li>
+<li>the assay resulted in some measurements</li>
+</ul>
+<p>Most of these are things that I could point to in the world,
+or could have pointed to
+if I was in the right place at the right time.</p>
+<p>By thinking about these things,
+I'm stepping beyond what it was convenient for someone to record,
+and thinking about what happened in the world.
+If somebody else has some assay data,
+then they might have recorded it differently
+for whatever reason,
+and so it wouldn't line up with my rows.
+I'm trying my best to use the same terms for the same things.
+I also want to use the same "shapes" for the same things.
+When trying to come to an agreement about what is connected to what,
+life is easier if I can point to the things I want to talk about:
+"See, here is the person, and the mouse came from here, and he did this and this."</p>
+<p>I could model the data in SQL
+by breaking the big table into smaller tables.
+I could have tables for:</p>
+<ul>
+<li>person</li>
+<li>group</li>
+<li>subject: species, strain, sex, group</li>
+<li>assay: date, investigator, subject, protocol</li>
+<li>measurement: assay, organ, disease, qualifier</li>
+</ul>
+<p>Then I would convert each table to triples more carefully.
+That's a good idea.
+Actually it's a better idea than what I'm about to do...</p>
+<p>Since we're getting near the end,
+I'm going to show you how you can do that modelling in SPARQL.
+SPARQL has a CONSTRUCT operation that you use to build triples.
+There's lots of tools that I could use to run SPARQL
+but I'll use <a href="http://robot.obolibrary.org">ROBOT</a>.
+I'll start with the "flat" triples in <code>build/data.ttl</code>,
+select them with my WHERE clause,
+then CONSTRUCT better triples,
+and save them in <code>build/model.ttl</code>.</p>
+<p>```sparql #src/model.rq
+PREFIX rdf: <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>
+PREFIX rdfs: <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>
+PREFIX xsd: <a href="http://www.w3.org/2001/XMLSchema#">http://www.w3.org/2001/XMLSchema#</a>
+PREFIX owl: <a href="http://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a>
+PREFIX obo: <a href="http://purl.obolibrary.org/obo/">http://purl.obolibrary.org/obo/</a>
+PREFIX ex: <a href="https://example.com/">https://example.com/</a></p>
+<p>CONSTRUCT {
+  ?group
+    rdfs:label      ?group_label .
+  ?subject
+    rdf:type        ?species ;
+    rdfs:label      ?subject_label ;
+    ex:strain       ?strain ;
+    obo:RO_0000086  ?sex ;         # has quality
+    ex:group        ?group .
+  ?sex
+    rdf:type        ?sex_type ;
+    rdfs:label      ?sex_label .
+  ?organ
+    rdf:type        ?organ_type ;
+    rdfs:label      ?organ_label ;
+    obo:BFO_0000050 ?subject .     # part of
+  ?assay
+    rdf:type        ?assay_type ;
+    rdfs:label      ?assay_label ;
+    obo:OBI_0000293 ?subject ;     # has specified input
+    obo:IAO_0000136 ?organ .       # is about
+}
+WHERE {
+  ?subject_row
+    ex:column-assay_datetime ?datetime ;
+    ex:column-investigator   ?investigator ;
+    ex:column-subject_id     ?subject ;
+    ex:column-species        ?species ;
+    ex:column-sex            ?sex_type ;
+    ex:column-group_id       ?group ;
+    ex:column-protocol       ?assay_type ;
+    ex:column-organ          ?organ_type ;
+    ex:column-disease        ?disease ;
+    ex:column-qualifier      ?qualifier .</p>
+<p>?assay_type
+    rdfs:label ?assay_type_label .
+  ?sex_type
+    rdfs:label ?sex_type_label .
+  ?organ_type
+    rdfs:label ?organ_type_label .</p>
+<p>BIND (URI(CONCAT(STR(?subject), "-assay")) AS ?assay)
+  BIND (URI(CONCAT(STR(?subject), "-sex"))   AS ?sex)
+  BIND (URI(CONCAT(STR(?subject), "-organ")) AS ?organ)
+  BIND (CONCAT("subject ", REPLACE(STR(?subject), "^.<em>-", "")) AS ?subject_label)
+  BIND (CONCAT("group ", REPLACE(STR(?group), "^.</em>-", ""))     AS ?group_label)
+  BIND (CONCAT(?subject_label, " ", ?assay_type_label)    AS ?assay_label)
+  BIND (CONCAT(?subject_label, " sex: ", ?sex_type_label) AS ?sex_label)
+  BIND (CONCAT(?subject_label, " ", ?organ_type_label)    AS ?organ_label)
+}</p>
+<pre><code>
+I can add this to the `src/build.sh`:
+
+```sh #src/build.sh
+java -jar robot.jar query \
+  --input build/data.ttl \
+  --query src/model.rq build/model.ttl
+</code></pre>
+<p>Then I get <code>build/model.ttl</code> that looks (in part) like this:</p>
+<pre><code class="language-ttl">ex:subject-31  a        obo:NCBITaxon_10090 ;
+        rdfs:label      &quot;subject 31&quot; ;
+        obo:RO_0000086  ex:subject-31-sex ;
+        ex:group        ex:group-2 .
+
+ex:group-2  rdfs:label  &quot;group 2&quot; .
+</code></pre>
+<p>Now that's what I call Linked Data!</p>
+<p>I'll update the README:</p>
+<pre><code class="language-markdown">## Modelling
+
+The data refers to:
+
+- investigator
+- subject
+- group
+- assay
+- measurement data
+  - subject organ
+  - disease
+
+TODO: A pretty diagram.
+</code></pre>
+<p>I'll commit my work in progress:</p>
+<pre><code class="language-sh">$ git add src/model.rq
+$ git add --update
+$ git commit -m &quot;Build model.ttl&quot;
+</code></pre>
+<h2 id="9-getting-it-done">9. Getting It Done<a class="headerlink" href="#9-getting-it-done" title="Permanent link">&para;</a></h2>
+<p>That was a lot of work for a small table.
+And I did all the hard work of mapping
+the terminology to ontology terms for you!</p>
+<p>There's lots more I can do.
+The SPARQL is just one big chunk,
+but it would be better in smaller pieces.
+The modelling isn't all that great yet.
+Before changing that
+I want to run it past the boss
+and see what she thinks.</p>
+<p>It's getting close to the end of the day.
+Before I quit I should update the README,
+clean up anything that's no longer relevant or correct,
+and make any necessary notes to my future self:</p>
+<pre><code class="language-sh">$ git add --update
+$ git commit -m &quot;Update README&quot;
+$ quit
+</code></pre>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../managing-ontology-project/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Managing OBO ontology projects" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Managing OBO ontology projects
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../sparql/" class="md-footer__link md-footer__link--next" aria-label="Next: Basic SPARQL for OBO Engineers" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Basic SPARQL for OBO Engineers
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.01824240.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      
+    
+  </body>
+</html>
